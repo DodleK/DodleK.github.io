@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 100% 99%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 265 89% 78%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 265 89% 78%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 265 89% 78%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative px-2 py-1 transition-all duration-300 hover:text-data;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute left-0 bottom-0 h-[2px] w-0 bg-data transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold font-heading mb-6 text-foreground relative inline-block;
+  }
+
+  .section-title::after {
+    @apply content-[''] absolute -bottom-2 left-0 h-1 w-2/3 bg-data rounded-full;
+  }
+
+  .skill-badge {
+    @apply px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 font-medium transition-all duration-300 hover:bg-purple-200;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l border-gray-200 last:border-0 last:pb-0;
+  }
+
+  .timeline-dot {
+    @apply absolute -left-[5px] top-1 w-[10px] h-[10px] rounded-full bg-data;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-gray-100 rounded-xl shadow-lg;
+  }
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
