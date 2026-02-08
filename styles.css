@@ -512,11 +512,14 @@ body {
     align-items: center;
     gap: 1rem;
     transition: all 0.3s;
+    text-decoration: none;
+    position: relative;  
 }
 
 .cert-card:hover {
     border-color: var(--border-gold);
     transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
 }
 
 .cert-card i {
@@ -527,6 +530,16 @@ body {
 .cert-card span {
     color: var(--text-primary);
     font-weight: 500;
+    flex: 1;
+}
+.cert-link-icon {
+    font-size: 1rem !important;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cert-card:hover .cert-link-icon {
+    opacity: 1;
 }
 
 /* ========================================
