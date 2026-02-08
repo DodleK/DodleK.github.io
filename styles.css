@@ -513,7 +513,8 @@ body {
     gap: 1rem;
     transition: all 0.3s;
     text-decoration: none;
-    position: relative;  
+    position: relative;
+    color: inherit;
 }
 
 .cert-card:hover {
