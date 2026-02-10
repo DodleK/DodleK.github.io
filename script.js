@@ -36,31 +36,37 @@ navItems.forEach(item => {
 // ========================================
 // Rotating Title Animation
 // ========================================
+
 const titles = [
     "Data Analytics Engineer",
     "BI Developer",
     "ETL Pipeline Engineer",
-    "Power BI Specialist"
+    "Power BI Specialist",
+    "Data Engineer",
+    "AI Generalist"
 ];
 
 let currentTitleIndex = 0;
 const rotatingTitle = document.querySelector('.rotating-title');
 
 if (rotatingTitle) {
+    // Set initial title immediately
+    rotatingTitle.textContent = titles[0];
+    rotatingTitle.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    
+    // Start rotation after 3 seconds
     setInterval(() => {
         rotatingTitle.style.opacity = '0';
         rotatingTitle.style.transform = 'translateY(-10px)';
         
         setTimeout(() => {
             currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-            rotatingTitle.textContent = titles[0];
+            rotatingTitle.textContent = titles[currentTitleIndex];
             rotatingTitle.style.opacity = '1';
             rotatingTitle.style.transform = 'translateY(0)';
         }, 300);
         
     }, 3000);
-    
-    rotatingTitle.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 }
 
 // ========================================
