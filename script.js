@@ -53,7 +53,7 @@ if (rotatingTitle) {
         
         setTimeout(() => {
             currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-            rotatingTitle.textContent = titles[currentTitleIndex];
+            rotatingTitle.textContent = titles[0];
             rotatingTitle.style.opacity = '1';
             rotatingTitle.style.transform = 'translateY(0)';
         }, 300);
