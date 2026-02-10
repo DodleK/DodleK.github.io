@@ -125,13 +125,16 @@ a {
     color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
-
-.profile-role {
+/* ========================================
+   Rotating Title in Sidebar
+   ======================================== */
+.profile-role .rotating-title {
+    display: inline-block;
+    color: var(--accent-gold);
     font-size: 0.875rem;
-    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 2rem;
+    font-weight: 500;
 }
 
 /* Sidebar Social Icons */
@@ -229,17 +232,6 @@ a {
     font-size: 1.125rem;
     color: var(--text-secondary);
     margin-bottom: 3rem;
-}
-
-/* ========================================
-   Rotating Title Animation
-   ======================================== */
-
-.rotating-title {
-    display: inline;
-    color: #F59E0B;
-    min-width: 200px; /* Prevents layout shift */
-    white-space: nowrap;
 }
 
 /* ========================================
