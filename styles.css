@@ -234,29 +234,12 @@ a {
 /* ========================================
    Rotating Title Animation
    ======================================== */
+
 .rotating-title {
-    color: var(--accent-gold);
-    display: inline-block;
-    animation: titleRotate 12s infinite;
-}
-
-@keyframes titleRotate {
-    0%, 25% { content: "Data Analytics Engineer"; }
-    25.01%, 50% { content: "BI Solutions Architect"; }
-    50.01%, 75% { content: "ETL Pipeline Engineer"; }
-    75.01%, 100% { content: "Power BI Specialist"; }
-}
-
-.rotating-title::after {
-    content: "Data Analytics Engineer";
-    animation: titleChange 12s infinite;
-}
-
-@keyframes titleChange {
-    0%, 24% { content: "Data Analytics Engineer"; }
-    25%, 49% { content: "BI Solutions Architect"; }
-    50%, 74% { content: "ETL Pipeline Engineer"; }
-    75%, 100% { content: "Power BI Specialist"; }
+    display: inline;
+    color: #F59E0B;
+    min-width: 200px; /* Prevents layout shift */
+    white-space: nowrap;
 }
 
 /* ========================================
