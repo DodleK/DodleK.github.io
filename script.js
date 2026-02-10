@@ -48,23 +48,18 @@ const rotatingTitle = document.querySelector('.rotating-title');
 
 if (rotatingTitle) {
     setInterval(() => {
-        // Fade out
         rotatingTitle.style.opacity = '0';
         rotatingTitle.style.transform = 'translateY(-10px)';
         
         setTimeout(() => {
-            // Change text
             currentTitleIndex = (currentTitleIndex + 1) % titles.length;
             rotatingTitle.textContent = titles[currentTitleIndex];
-            
-            // Fade in
             rotatingTitle.style.opacity = '1';
             rotatingTitle.style.transform = 'translateY(0)';
         }, 300);
         
-    }, 3000); // Change every 3 seconds
+    }, 3000);
     
-    // Add transition CSS
     rotatingTitle.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
 }
 
@@ -80,7 +75,6 @@ if (mobileToggle) {
     });
 }
 
-// Close sidebar when clicking outside on mobile
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 968) {
         if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
@@ -90,7 +84,84 @@ document.addEventListener('click', (e) => {
 });
 
 // ========================================
-// Smooth Fade-in Animation for Cards
+// Contact Form with Success Message
+// ========================================
+const contactForm = document.querySelector('.contact-form');
+const formWrapper = document.querySelector('.contact-form-wrapper');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitButton = contactForm.querySelector('.submit-button');
+        const originalButtonText = submitButton.innerHTML;
+        
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitButton.disabled = true;
+        
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showSuccessMessage();
+                contactForm.reset();
+            } else {
+                showErrorMessage();
+            }
+        } catch (error) {
+            showErrorMessage();
+        } finally {
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+        }
+    });
+}
+
+function showSuccessMessage() {
+    const successMessage = document.createElement('div');
+    successMessage.className = 'form-message success-message';
+    successMessage.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <h4>Thank you for your message!</h4>
+        <p>I'll get back to you as soon as possible.</p>
+    `;
+    
+    formWrapper.insertBefore(successMessage, contactForm);
+    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    setTimeout(() => {
+        successMessage.style.opacity = '0';
+        setTimeout(() => successMessage.remove(), 300);
+    }, 5000);
+}
+
+function showErrorMessage() {
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'form-message error-message';
+    errorMessage.innerHTML = `
+        <i class="fas fa-exclamation-circle"></i>
+        <h4>Oops! Something went wrong.</h4>
+        <p>Please try again or email me directly at <a href="mailto:kavya.dodle@outlook.com">kavya.dodle@outlook.com</a></p>
+    `;
+    
+    formWrapper.insertBefore(errorMessage, contactForm);
+    errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    
+    setTimeout(() => {
+        errorMessage.style.opacity = '0';
+        setTimeout(() => errorMessage.remove(), 300);
+    }, 7000);
+}
+
+// ========================================
+// Animations
 // ========================================
 const animateElements = document.querySelectorAll('.expertise-card, .portfolio-card, .timeline-item, .education-item');
 
@@ -116,120 +187,20 @@ animateElements.forEach(el => {
 });
 
 // ========================================
-// Portfolio Card Hover Effects
-// ========================================
-const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-portfolioCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-8px)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
-
-// ========================================
-// Form Submission Handler
-// ========================================
-const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        // Form will be handled by Formspree
-        console.log('Form submitted');
-    });
-}
-
-// ========================================
-// Prevent Default Hash Navigation
-// ========================================
-window.addEventListener('hashchange', (e) => {
-    e.preventDefault();
-});
-
-// ========================================
-// Initialize on Load
+// Initialize
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Activate first section by default
-    if (sections.length > 0) {
-        sections[0].classList.add('active');
-    }
-    if (navItems.length > 0) {
-        navItems[0].classList.add('active');
-    }
+    if (sections.length > 0) sections[0].classList.add('active');
+    if (navItems.length > 0) navItems[0].classList.add('active');
     
-    // Add loaded class to body
     document.body.classList.add('loaded');
-    
     console.log('%c👋 Kavya Dodle Portfolio', 'font-size: 20px; font-weight: bold; color: #F59E0B;');
-    console.log('%cPower BI Specialist | Data Analytics Engineer', 'font-size: 14px; color: #94A3B8;');
-    console.log('%c📧 kavyakasthuridodle@gmail.com', 'font-size: 14px; color: #F59E0B;');
 });
 
-// ========================================
-// Resize Handler
-// ========================================
-let resizeTimer;
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        // Close sidebar on desktop resize
-        if (window.innerWidth > 968) {
-            sidebar.classList.remove('active');
-        }
-    }, 250);
+    if (window.innerWidth > 968) sidebar.classList.remove('active');
 });
 
-// ========================================
-// Keyboard Navigation
-// ========================================
 document.addEventListener('keydown', (e) => {
-    // ESC to close mobile sidebar
-    if (e.key === 'Escape' && window.innerWidth <= 968) {
-        sidebar.classList.remove('active');
-    }
-});
-
-// ========================================
-// External Links - Open in New Tab
-// ========================================
-document.querySelectorAll('a[href^="http"]').forEach(link => {
-    if (!link.hasAttribute('target')) {
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener noreferrer');
-    }
-});
-
-// ========================================
-// Copy Email to Clipboard
-// ========================================
-const emailLinks = document.querySelectorAll('a[href^="mailto"]');
-emailLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        const email = link.getAttribute('href').replace('mailto:', '');
-        
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(email).then(() => {
-                console.log('Email copied to clipboard:', email);
-            });
-        }
-    });
-});
-
-// ========================================
-// Smooth Scroll Enhancement
-// ========================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    if (e.key === 'Escape' && window.innerWidth <= 968) sidebar.classList.remove('active');
 });
