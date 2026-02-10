@@ -12,8 +12,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <!-- Top Navigation Bar -->
     <nav class="top-nav">
@@ -30,7 +32,7 @@
     <aside class="sidebar">
         <div class="profile-section">
             <div class="profile-image">
-                <i class="fas fa-user"></i>
+		<img src="assets/images/profile.jpg" alt="Kavya Dodle">
             </div>
             <h2 class="profile-name">Kavya Dodle</h2>
             <p class="profile-role"><strong class="rotating-title"></strong></p>
@@ -331,48 +333,10 @@
             <p class="section-intro">Production-scale projects demonstrating Power BI expertise and AI integration</p>
 
             <div class="portfolio-grid">
-                <div class="portfolio-card featured">
-                    <div class="portfolio-badge">Featured</div>
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/600x400/1F2937/F59E0B?text=Insurance+Analytics+Platform" alt="Insurance Analytics">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Insurance Analytics Platform</h3>
-                        <p class="portfolio-description">
-                            Enterprise Power BI solution processing $2B+ in annual premiums with automated 
-                            Azure Data Factory pipelines, star schema optimization, and executive dashboards 
-                            serving 95+ users.
-                        </p>
-                        <div class="portfolio-stats">
-                            <div class="stat-item">
-                                <i class="fas fa-clock"></i>
-                                <span>95% time reduction</span>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-database"></i>
-                                <span>500K+ daily records</span>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-check-circle"></i>
-                                <span>99.5% accuracy</span>
-                            </div>
-                        </div>
-                        <div class="portfolio-tech">
-                            <span class="tech-badge">Power BI</span>
-                            <span class="tech-badge">Azure Data Factory</span>
-                            <span class="tech-badge">DAX</span>
-                            <span class="tech-badge">SQL Server</span>
-                        </div>
-                        <a href="https://github.com/DodleK" class="portfolio-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
-
+                
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/600x400/1F2937/8B5CF6?text=AI+Content+Automation" alt="AI Automation">
+			<img src="assets/images/ai-content-pipeline.png" alt="AI Content Pipeline">
                     </div>
                     <div class="portfolio-content">
                         <h3>AI-Powered Content Pipeline</h3>
@@ -405,7 +369,7 @@
 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/600x400/1F2937/10B981?text=Gmail+AI+Assistant" alt="Gmail Assistant">
+			<img src="assets/images/gmail-assistant.png" alt="Gmail AI Assistant">
                     </div>
                     <div class="portfolio-content">
                         <h3>Gmail AI Assistant</h3>
@@ -437,7 +401,7 @@
 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/600x400/1F2937/3B82F6?text=Sales+Analytics+AWS" alt="Sales Analytics">
+			<img src="assets/images/sales-analytics.png" alt="Sales Analytics">
                     </div>
                     <div class="portfolio-content">
                         <h3>Sales Analytics Platform</h3>
@@ -461,44 +425,13 @@
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">scikit-learn</span>
                         </div>
-                        <a href="https://github.com/DodleK" class="portfolio-link" target="_blank">
+                        <a href="https://github.com/DodleK/InsightSphere" class="portfolio-link" target="_blank">
                             <i class="fab fa-github"></i>
                             View on GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="portfolio-card">
-                    <div class="portfolio-image">
-                        <img src="https://via.placeholder.com/600x400/1F2937/EF4444?text=Enterprise+Migration" alt="Data Migration">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Enterprise Data Migration</h3>
-                        <p class="portfolio-description">
-                            Large-scale legacy system consolidation using Informatica + Oracle, migrating 
-                            50M+ records with comprehensive validation achieving 99.8% accuracy.
-                        </p>
-                        <div class="portfolio-stats">
-                            <div class="stat-item">
-                                <i class="fas fa-exchange-alt"></i>
-                                <span>50M+ records migrated</span>
-                            </div>
-                            <div class="stat-item">
-                                <i class="fas fa-check-double"></i>
-                                <span>99.8% accuracy</span>
-                            </div>
-                        </div>
-                        <div class="portfolio-tech">
-                            <span class="tech-badge">Informatica</span>
-                            <span class="tech-badge">Oracle</span>
-                            <span class="tech-badge">SQL</span>
-                        </div>
-                        <a href="https://github.com/DodleK" class="portfolio-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                            View on GitHub
-                        </a>
-                    </div>
-                </div>
             </div>
 
             <div class="portfolio-cta">
@@ -581,6 +514,6 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
