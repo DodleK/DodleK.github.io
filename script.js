@@ -38,7 +38,7 @@ navItems.forEach(item => {
 // ========================================
 const titles = [
     "Data Analytics Engineer",
-    "BI Solutions Architect",
+    "BI Developer",
     "ETL Pipeline Engineer",
     "Power BI Specialist"
 ];
