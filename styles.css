@@ -1066,3 +1066,90 @@ a {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-gold);
 }
+
+/* ========================================
+   Form Success/Error Messages
+   ======================================== */
+.form-message {
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    animation: slideDown 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.success-message {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid #10B981;
+}
+
+.success-message i {
+    color: #10B981;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.success-message h4 {
+    color: #10B981;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.success-message p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid #EF4444;
+}
+
+.error-message i {
+    color: #EF4444;
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.error-message h4 {
+    color: #EF4444;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.error-message p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.error-message a {
+    color: #EF4444;
+    text-decoration: underline;
+}
+
+.error-message a:hover {
+    color: #DC2626;
+}
+
+.submit-button .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
